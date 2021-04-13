@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Calendar 04</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="style.css">
+
+	</head>
+	<body>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="content w-100">
+				    <div class="calendar-container">
+				      <div class="calendar"> 
+				        <div class="year-header"> 
+				          <span class="left-button year-left fa fa-chevron-left" id="prev"> </span> 
+				          <span class="year" id="label"></span> 
+				          <span class="right-button year-right fa fa-chevron-right" id="next"> </span>
+				        </div> 
+						<div class="month-header"> 
+                          <span class="left-button month-left fa fa-chevron-left" id="prev"> </span> 
+                          <span class="month" id="label"></span> 
+                          <span class="right-button month-right fa fa-chevron-right" id="next"> </span>
+                        </div> 
+				        
+				        <table class="days-table w-100"> 
+				          <td class="day">Sun</td> 
+				          <td class="day">Mon</td> 
+				          <td class="day">Tue</td> 
+				          <td class="day">Wed</td> 
+				          <td class="day">Thu</td> 
+				          <td class="day">Fri</td> 
+				          <td class="day">Sat</td>
+				        </table> 
+				        <div class="frame"> 
+				          <table class="dates-table w-100"> 
+			              <tbody class="tbody">             
+			              </tbody> 
+				          </table>
+				        </div>
+				      </div>
+				    </div>
+				    <div class="time-container">
+                        <div id="date">
+                            <label>Datum:</label>
+                        </div>
+                        <div id="start">
+                            <label>Startzeit:</label><input class="time" type="text" value="00:00"/>
+                        </div>
+                        <div id="end">
+                            <label>Endzeit:</label><input class="time" type="text" value="00:00"/>
+                        </div>
+				    </div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="jquery-clock-timepicker.js"></script>
+	<script src="main.js"></script>
+
+	</body>
+</html>
+
