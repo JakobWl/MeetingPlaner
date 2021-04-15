@@ -1,6 +1,9 @@
 
 $(document).ready(function(){
     $('.time-input input').clockTimePicker();
+	$('.time-input input').clockTimePicker({
+		alwaysSelectHoursFirst: true
+	});
     $('.time-input input').val('00:00');
     $('.date-input input').datepicker({
         autoclose: true,
@@ -8,7 +11,6 @@ $(document).ready(function(){
     $('.date-input input').datepicker('setDate', new Date());
 
     $('.time-input').click(function (e) {
-
         var test = $('.date-input').children('input');
         test.each(function() {
             if($(this).datepicker( "widget" ).is(":visible")){
@@ -16,6 +18,11 @@ $(document).ready(function(){
             }
         });
     });
+
+	$('.date-input input').datepicker().on('changeDate', function (ev) {
+		var test = $($($($($($(this).parent()).parent()).children('div')[1]).children('div')[0]).children('input')[0]);
+		test.select();
+	});
 });
 
 /*
@@ -45,7 +52,7 @@ $(document).ready(function(){
 				popupBackgroundColor: '#FFFFFF',
 				popupHeaderBackgroundColor: '#0797FF',
 				popupHeaderTextColor: '#FFFFFF',
-				selectorColor: '#0797FF',
+				selectorColor: 'blue',
 				selectorNumberColor: '#FFFFFF',
 				signButtonColor: '#FFFFFF',
 				signButtonBackgroundColor: '#0797FF'

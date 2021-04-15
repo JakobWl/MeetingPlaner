@@ -12,11 +12,17 @@
   z-index: 1;
 }
 
+.time-picker {
+  padding: 26px 16px 10px 26px; 
+}
+
+.date-picker {
+  padding: 26px 16px 10px 45px;
+}
+
 .picker {
-  padding: 20px; 
   border: 1px solid blue;
   border-radius: 10px;
-  padding: 26px 16px 10px 26px; 
   width: 150px;
   margin-top: -30px;
 }
@@ -34,4 +40,42 @@
 
 .time-container div {
   float: left;
+}
+
+.datepicker {
+  border: 1px solid blue !important;
+  border-radius: 10px !important;
+  width: 250px;
+}
+
+.table-condensed {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.datepicker table tr td:hover {
+  background: #eeeeee;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.datepicker table tr td.active, .datepicker table tr td.active:active:hover, .datepicker table tr td.active.highlighted:active:hover, .datepicker table tr td.active.active:hover, .datepicker table tr td.active.highlighted.active:hover, .datepicker table tr td.active:active:focus, .datepicker table tr td.active.highlighted:active:focus, .datepicker table tr td.active.active:focus, .datepicker table tr td.active.highlighted.active:focus, .datepicker table tr td.active:active.focus, .datepicker table tr td.active.highlighted:active.focus, .datepicker table tr td.active.active.focus, .datepicker table tr td.active.highlighted.active.focus {
+  color: #fff;
+  background-color: blue !important;
+  border-color: blue !important;
+  border-radius: 50%;
+}
+
+.clock-timepicker-popup {
+  border-radius: 10px !important;
+  border: 1px solid blue;
+  margin-top: .125rem;
+}
+
+.bi-calendar {
+  position: relative;
+  transform: translate(-50%, -50%);
+  top: 35%;
+  left: 15%;
 }
