@@ -19,9 +19,21 @@ $(document).ready(function(){
         });
     });
 
-	$('.date-input input').datepicker().on('changeDate', function (ev) {
-		var test = $($($($($($(this).parent()).parent()).children('div')[1]).children('div')[0]).children('input')[0]);
-		test.select();
+	$('.date-start-picker').datepicker().on('changeDate', function (ev) {
+		var newDate = $('.date-start-picker').val();
+		var date = new Date(newDate);
+		var correct = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0, 0);
+		$('.date-end-picker').datepicker('setDate', correct);
+		$('.date-end-picker').datepicker({
+			startDate: correct
+		});
+		$('.time-start-picker').select();
+	});
+
+	$('.time-start-picker').clockTimePicker({
+		onAdjust: function(newVal, oldVal) {
+			$('.date-end-picker').select();
+		}
 	});
 });
 
