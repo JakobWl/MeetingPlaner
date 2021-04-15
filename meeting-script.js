@@ -5,10 +5,14 @@ $(document).ready(function(){
 		alwaysSelectHoursFirst: true
 	});
     $('.time-input input').val('00:00');
-    $('.date-input input').datepicker({
+    $('.date-start-picker').datepicker({
         autoclose: true,
     });
-    $('.date-input input').datepicker('setDate', new Date());
+    $('.date-start-picker').datepicker('setDate', new Date());
+	$('.date-end-picker').datepicker({
+        autoclose: true,
+    });
+    $('.date-end-picker').datepicker('setDate', new Date());
 
     $('.time-input').click(function (e) {
         var test = $('.date-input').children('input');
@@ -23,10 +27,16 @@ $(document).ready(function(){
 		var newDate = $('.date-start-picker').val();
 		var date = new Date(newDate);
 		var correct = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0, 0);
-		$('.date-end-picker').datepicker('setDate', correct);
 		$('.date-end-picker').datepicker({
+			autoclose: true,
 			startDate: correct
 		});
+		$('.date-end-picker').datepicker('setDate', correct);
+
+		$('.date-end-picker').datepicker().on('changeDate', function (ev) {
+			$('.time-end-picker').select();
+		});
+
 		$('.time-start-picker').select();
 	});
 
