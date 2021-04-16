@@ -5,14 +5,10 @@ $(document).ready(function(){
 		alwaysSelectHoursFirst: true
 	});
     $('.time-input input').val('00:00');
-    $('.date-start-picker').datepicker({
+    $('.date-input input').datepicker({
         autoclose: true,
     });
-    $('.date-start-picker').datepicker('setDate', new Date());
-	$('.date-end-picker').datepicker({
-        autoclose: true,
-    });
-    $('.date-end-picker').datepicker('setDate', new Date());
+    $('.date-input input').datepicker('setDate', new Date());
 
     $('.time-input').click(function (e) {
         var test = $('.date-input').children('input');
@@ -27,21 +23,45 @@ $(document).ready(function(){
 		var newDate = $('.date-start-picker').val();
 		var date = new Date(newDate);
 		var correct = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0, 0);
+		$('.date-end-picker').datepicker().unbind('changeDate');
 		$('.date-end-picker').datepicker({
 			autoclose: true,
-			startDate: correct
 		});
+		$('.date-end-picker').datepicker('setStartDate', correct);
 		$('.date-end-picker').datepicker('setDate', correct);
-
 		$('.date-end-picker').datepicker().on('changeDate', function (ev) {
-			$('.time-end-picker').select();
+			changeDate();
 		});
 
 		$('.time-start-picker').select();
 	});
 
+	$('.date-end-picker').datepicker().on('changeDate', function (ev) {
+		changeDate();
+	});
+
+	function changeDate () {
+		var startDate = new Date($('.date-start-picker').val());
+		var endDate = new Date($('.date-end-picker').val());
+
+		if (startDate.getTime() == endDate.getTime()) {
+			var mintime = $('.time-start-picker').val();
+			$('.time-end-picker').clockTimePicker();
+			$('.time-end-picker').clockTimePicker({
+				minimum: mintime
+			});
+		} else {
+			$('.time-end-picker').clockTimePicker();
+			$('.time-end-picker').clockTimePicker({
+				minimum: "00:00"
+			});
+		}
+
+		$('.time-end-picker').select();
+	}
+
 	$('.time-start-picker').clockTimePicker({
-		onAdjust: function(newVal, oldVal) {
+		onClose: function(newVal, oldVal) {
 			$('.date-end-picker').select();
 		}
 	});
